@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
@@ -44,6 +45,22 @@ public class EmployeeRepository {
         template.findAndRemove(query, Employee.class);
     }
 
+    public void updateEmployee(Employee employee){
+    String first = employee.getFirstName();
+    String second = employee.getLastName();
+
+    Query query = new Query();
+        query.addCriteria(
+                new Criteria().andOperator(
+            Criteria.where("firstName").is(first),
+                        Criteria.where("lastName").is(second)
+                )
+                        );
+
+    Update update = new Update().set("salary", employee.getSalary());
+        template.findAndModify(query, update, Employee.class);
+
+}
 }
 
 
