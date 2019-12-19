@@ -1,7 +1,7 @@
 package com.demoproject.employeeAPI.repository;
 
 import com.demoproject.employeeAPI.model.Employee;
-import java.awt.datatransfer.StringSelection;
+import com.demoproject.employeeAPI.model.Role;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -61,6 +61,10 @@ public class EmployeeRepository {
         template.findAndModify(query, update, Employee.class);
 
 }
+
+    public List<Role> getAllRoles() {
+        return  template.findAll(Role.class);
+    }
 }
 
 

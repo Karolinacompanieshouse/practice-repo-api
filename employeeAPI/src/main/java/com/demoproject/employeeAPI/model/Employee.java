@@ -1,7 +1,5 @@
 package com.demoproject.employeeAPI.model;
 
-import java.util.Date;
-
 public class Employee {
 
     private String firstName;
@@ -11,6 +9,7 @@ public class Employee {
     private String addressLine1;
     private String addressLine2;
     private double salary;
+    private String role;
 
     public String getFirstName() {
         return firstName;
@@ -64,4 +63,11 @@ public class Employee {
 
     public void setSalary(double salary) { this.salary = salary; }
 
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
 }
