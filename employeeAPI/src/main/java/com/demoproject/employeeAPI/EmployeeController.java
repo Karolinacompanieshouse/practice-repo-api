@@ -33,7 +33,6 @@ public class EmployeeController {
 
     @GetMapping(value = "/allEmployees")
     public ResponseEntity<Employees> getAllEmployees() {
-
         Employees employees = new Employees();
         employees.setEmployees(service.getAllEmployees());
         System.out.println("Got all employees!!");
@@ -51,9 +50,6 @@ public class EmployeeController {
         }
         return ResponseEntity.ok().body(employees);
     }
-
-
-
 
     @PostMapping(value = "/deleteEmployee")
         public void deleteEmployee(@RequestBody Employee employee){
